@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hashim Fawad — Portfolio</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- GSAP (free CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Hashim Fawad — front-end developer. Portfolio with subtle motion, particles, and elegant interactions.">
+</head>
+<body>
+  <!-- Background canvas (particles) -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- subtle glow element placed above canvas but behind content -->
+  <div id="ambient-glow" aria-hidden="true"></div>
+
+  <!-- skip link for accessibility -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div class="brand" aria-label="Hashim Fawad portfolio">
+        <a href="#home" id="brand-link">Hashim Fawad</a>
+      </div>
+
+      <nav id="main-nav" class="main-nav" role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="cv" href="assets/Hashim_Fawad_CV.pdf" download>Download CV</a></li>
+        </ul>
+      </nav>
+
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section id="home" class="hero section">
+      <div class="content">
+        <h1 class="title">Hi, I’m <span class="accent">Hashim Fawad</span></h1>
+        <p class="subtitle">I create aesthetic, high-performance front-end experiences with attention to craftsmanship and motion.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#projects">View projects</a>
+          <a class="btn btn-ghost" href="assets/Hashim_Fawad_CV.pdf" download>Download CV</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About</h2>
+        <p>I am a front-end developer focused on building elegant user interfaces, smooth animations, and accessible experiences. My background in detail-oriented work informs how I structure UI and interactions.</p>
+        <ul class="about-list">
+          <li><strong>Location</strong><span>Pakistan</span></li>
+          <li><strong>Availability</strong><span>Open to opportunities</span></li>
+          <li><strong>Email</strong><span><a href="mailto:hashim@example.com">hashim@example.com</a></span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+          <!-- Example cards, replace content and images -->
+          <article class="project-card">
+            <div class="project-media" style="background-image:url('assets/project1.jpg')" role="img" aria-label="Project Alpha screenshot"></div>
+            <div class="project-body">
+              <h3>Project Alpha</h3>
+              <p>Interactive landing experience with layered motion and responsive performance tuning.</p>
+              <p class="project-links"><a href="#" target="_blank" rel="noopener">View live</a> · <a href="#" target="_blank" rel="noopener">Source</a></p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media" style="background-image:url('assets/project2.jpg')" role="img" aria-label="Project Nova screenshot"></div>
+            <div class="project-body">
+              <h3>Project Nova</h3>
+              <p>Dashboard prototype with smooth data-driven animations and considered information hierarchy.</p>
+              <p class="project-links"><a href="#" target="_blank" rel="noopener">View live</a> · <a href="#" target="_blank" rel="noopener">Source</a></p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media" style="background-image:url('assets/project3.jpg')" role="img" aria-label="Project Echo screenshot"></div>
+            <div class="project-body">
+              <h3>Project Echo</h3>
+              <p>Minimal portfolio template with GSAP scroll interactions and progressive enhancement.</p>
+              <p class="project-links"><a href="#" target="_blank" rel="noopener">View live</a> · <a href="#" target="_blank" rel="noopener">Source</a></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <h2>Skills</h2>
+        <ul class="skills-grid">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>GSAP</li>
+          <li>Performance</li>
+          <li>Accessibility</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>If you would like to collaborate or have a project in mind, send a brief message.</p>
+
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required minlength="2" />
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required minlength="10"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn">Send message</button>
+            <div id="form-feedback" role="status" aria-live="polite"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Hashim Fawad. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
